@@ -22,10 +22,10 @@ GROUP BY c.login;
 ### Запрос:
 SELECT track,
        CASE
-           WHEN finished = true THEN 2
-           WHEN cancelled = true THEN -1
-           WHEN "inDelivery" = true THEN 1
-           ELSE 0
+              WHEN finished = true THEN 2
+              WHEN cancelled = true THEN -1
+              WHEN "inDelivery" = true THEN 1
+              ELSE 0
        END AS status
 FROM "Orders"
 ORDER BY track;
@@ -39,3 +39,5 @@ ORDER BY track;
 2. Создать файл configuration.py для размещения внутри информации о конечном URL-сервера и пути до необходимых endpoint(s)
 3. Создать файл sender_stand_request.py для размещения внутри функции создания заказа и функции получения информации о заказе по трек-номеру
 4. После создаем файл для проведения автотестов order_data_geting_by_track_test.py, где происходит вызов функции создания заказа -> извлекаем track номер -> вызываем функцию получения информации о заказе по track номеру -> проверяем статус ответа (200)
+
+## Скриншот результата тестирования test_result.png (директория \yandex_finalTest)
