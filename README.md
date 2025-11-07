@@ -2,10 +2,10 @@
 ## Задание 1 
 Представь: тебе нужно проверить, отображается ли созданный заказ в базе данных. Для этого: выведи список логинов курьеров с количеством их заказов в статусе «В доставке» (поле inDelivery = true).
 ### Запрос:
-SELECT c.login, COUNT(o."courierId") AS "orderCount"
-FROM "Couriers" AS c
-LEFT JOIN "Orders" AS o ON c.id=o."courierId"
-WHERE o."inDelivery"=true
+SELECT c.login, COUNT(o."courierId") AS "orderCount" \
+FROM "Couriers" AS c \
+LEFT JOIN "Orders" AS o ON c.id=o."courierId" \
+WHERE o."inDelivery"=true \
 GROUP BY c.login;
 
 Скриншот результата запроса task1_request.png (директория \yandex_finaltest)
@@ -20,14 +20,14 @@ GROUP BY c.login;
 Для остальных случаев вывести 0.
 
 ### Запрос:
-SELECT track,
-       CASE
-              WHEN finished = true THEN 2
-              WHEN cancelled = true THEN -1
-              WHEN "inDelivery" = true THEN 1
-              ELSE 0
-       END AS status
-FROM "Orders"
+SELECT track, \
+       CASE \
+              WHEN finished = true THEN 2 \
+              WHEN cancelled = true THEN -1 \
+              WHEN "inDelivery" = true THEN 1 \
+              ELSE 0 \
+       END AS status \
+FROM "Orders" \
 ORDER BY track;
 
 Скриншот результата запроса task2_request.png (директория \yandex_finaltest)
